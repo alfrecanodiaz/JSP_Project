@@ -88,6 +88,7 @@ public class AuthImplement implements AuthService {
 
     @Override
     public boolean check() {
-        return (Boolean) mRequest.getSession().getAttribute("user_logged");
+        HttpSession session = mRequest.getSession();
+        return !(session.getAttribute("user_logged") == null || session.getAttribute("user") == null);
     }
 }

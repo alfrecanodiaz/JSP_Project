@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/src/java/com/zentcode/servlets/LoginServlet.java</file>
-            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/web/login.jsp</file>
-            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/web/flash_message.jsp</file>
-            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/src/java/com/zentcode/servlets/HomeServlet.java</file>
+            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/web/pages/users/index.jsp</file>
+            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/web/includes/delete-form.jsp</file>
+            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/src/java/com/zentcode/models/User.java</file>
+            <file>file:/home/alfre/repo/NetBeansProjects/Agenda/web/includes/footer_loader.jsp</file>
         </group>
     </open-files>
 </project-private>

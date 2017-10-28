@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<c:if test="${sessionScope.user != null}">
+    <c:redirect url="pages/home" />
+</c:if>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -36,8 +39,8 @@
             </div>
             <div class="card">
                 <div class="body">
-                    <form id="sign_in" method="POST" action="<c:url value="/Login"/>">
-                        <div class="msg">Sign in to start your session</div>
+                    <form id="sign_in" method="POST" action="<c:url value="/login"/>">
+                        <div class="msg">Inicia sesión en Admin</div>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">person</i>
@@ -56,21 +59,21 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8 p-t-5">
-                                <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-                                <label for="rememberme">Remember Me</label>
+<!--                                <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                                <label for="rememberme">Remember Me</label>-->
                             </div>
                             <div class="col-xs-4">
-                                <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                                <button class="btn btn-block bg-pink waves-effect" type="submit">ENTRAR</button>
                             </div>
                         </div>
-                        <div class="row m-t-15 m-b--20">
+<!--                        <div class="row m-t-15 m-b--20">
                             <div class="col-xs-6">
                                 <a href="sign-up.html">Register Now!</a>
                             </div>
                             <div class="col-xs-6 align-right">
                                 <a href="forgot-password.html">Forgot Password?</a>
                             </div>
-                        </div>
+                        </div>-->
                         <input type="hidden" name="action" value="login">
                     </form>
                 </div>

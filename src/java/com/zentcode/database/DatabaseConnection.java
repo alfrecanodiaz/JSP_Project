@@ -15,7 +15,7 @@ public class DatabaseConnection {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/" + database,
+                    "jdbc:mysql://localhost:3306/" + database + "?characterEncoding=utf8",
                     "dev", "dev"
             );
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {

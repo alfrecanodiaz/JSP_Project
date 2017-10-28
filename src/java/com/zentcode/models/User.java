@@ -70,6 +70,11 @@ public class User implements Model {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", celular=" + celular + ", email=" + email + ", password=" + password + '}';
+    }
     
     @Override
     public String requiredParams() {
@@ -78,6 +83,8 @@ public class User implements Model {
 
     @Override
     public void fill(HttpServletRequest request) {
+        if (request.getParameter("id") != null)
+            this.id = Integer.valueOf(request.getParameter("id"));
         this.nombre = request.getParameter("nombre");
         this.direccion = request.getParameter("direccion");
         this.telefono = request.getParameter("telefono");

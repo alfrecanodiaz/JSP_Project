@@ -1,4 +1,4 @@
-<meta charset="UTF-8">
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <title>${page_title}</title>
@@ -19,11 +19,17 @@
 <!-- Animation Css -->
 <link href="${pageContext.request.contextPath}/assets/theme/plugins/animate-css/animate.css" rel="stylesheet" />
 
-<!-- Morris Chart Css-->
-<link href="${pageContext.request.contextPath}/assets/theme/plugins/morrisjs/morris.css" rel="stylesheet" />
+<!-- Sweet Alert Css -->
+<link href="${pageContext.request.contextPath}/assets/theme/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+<!-- JQuery DataTable Css -->
+<link href="${pageContext.request.contextPath}/assets/theme/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom Css -->
 <link href="${pageContext.request.contextPath}/assets/theme/css/style.min.css" rel="stylesheet">
 
-<!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+<!-- Backend Theme -->
 <link href="${pageContext.request.contextPath}/assets/theme/css/themes/theme-red.min.css" rel="stylesheet" />
+
+<!-- Custom Css -->
+<link href="${pageContext.request.contextPath}/assets/theme/css/custom.css" rel="stylesheet" />

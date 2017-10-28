@@ -166,7 +166,7 @@ public class UserImplement implements UserService {
                 ps.setString(2, user.getDireccion());
                 ps.setString(3, user.getTelefono());
                 ps.setString(4, user.getCelular());
-                ps.setString(5, user.getCelular());
+                ps.setString(5, user.getEmail());
                 ps.setString(6, user.getPassword());
                 ps.setInt(7, user.getId());
                 

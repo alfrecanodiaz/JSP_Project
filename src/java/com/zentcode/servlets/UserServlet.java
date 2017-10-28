@@ -13,18 +13,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class UserServlet extends HttpServlet implements Controller {
     
     UserService service;
     HttpServletResponse mResponse;
     HttpServletRequest mRequest;
+    HttpSession session;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         mRequest = request;
         mResponse = response;
+        session = request.getSession();
         service = new UserImplement();
         
         switch (request.getParameter("action")) {
@@ -55,60 +58,69 @@ public class UserServlet extends HttpServlet implements Controller {
     }
 
     @Override
-    public void index() throws ServletException, IOException {
-        List<User> list = service.listAll();
-        
-        mRequest.setAttribute("list", list);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
-        mRequest.getRequestDispatcher("user_index.jsp").forward(mRequest, mResponse);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    public void index() throws ServletException, IOException {
+        List<User> users = service.listAll();
+        
+        mRequest.setAttribute("users", users);
+
+        mRequest.getRequestDispatcher("/pages/users/index.jsp").forward(mRequest, mResponse);
     }
 
     @Override
     public void create() throws ServletException, IOException {
-        mRequest.getRequestDispatcher("user_create.jsp").forward(mRequest, mResponse);
+        mRequest.getRequestDispatcher("/pages/users/create.jsp").forward(mRequest, mResponse);
     }
 
     @Override
     public void store() throws ServletException, IOException {
         User user = new User();
-        String route = "User?action="+QueryHelper.INDEX;
-                
+        
+        System.out.println("UTF: " + mRequest.getParameter("direccion"));
         List<ValidatorError> errors = Validator.validate(mRequest, user.requiredParams());
         if (errors.isEmpty()) {
             user.fill(mRequest);
             service.insert(user);
+            session.setAttribute("success", "Usuario creado correctamente.");
+            mResponse.sendRedirect(mRequest.getContextPath() + "/pages/user?action=index");
         } else {
-            mRequest.setAttribute("errors", errors);
-            route = "user_create.jsp";
+            session.setAttribute("errors", errors);
+            mRequest.getRequestDispatcher("/pages/users/create.jsp").forward(mRequest, mResponse);
         }
-        
-        mRequest.getRequestDispatcher(route).forward(mRequest, mResponse);
     }
 
     @Override
     public void edit() throws ServletException, IOException {
         Integer id = Integer.valueOf(mRequest.getParameter("id"));
         User user = service.findById(id);
+        
         mRequest.setAttribute("user", user);
         
-        mRequest.getRequestDispatcher("user_edit.jsp").forward(mRequest, mResponse);
+        mRequest.getRequestDispatcher("/pages/users/edit.jsp").forward(mRequest, mResponse);
     }
 
     @Override
     public void update() throws ServletException, IOException {
         User user = new User();
-        String route = "User?action="+QueryHelper.INDEX;
         
         List<ValidatorError> errors = Validator.validate(mRequest, user.requiredParams());
         if (errors.isEmpty()) {
             user.fill(mRequest);
             service.update(user);
+            mResponse.sendRedirect(mRequest.getContextPath() + "/pages/user?action=index");
         } else {
-            mRequest.setAttribute("errors", errors);
-            route = "user_edit.jsp";
+            session.setAttribute("errors", errors);
+            mRequest.getRequestDispatcher("/pages/users/edit.jsp").forward(mRequest, mResponse);
         }
-        
-        mRequest.getRequestDispatcher(route).forward(mRequest, mResponse);
     }
 
     @Override
@@ -117,6 +129,8 @@ public class UserServlet extends HttpServlet implements Controller {
         
         service.delete(id);
         
-        mRequest.getRequestDispatcher("User?action="+QueryHelper.INDEX).forward(mRequest, mResponse);
-    }
+        session.setAttribute("success", "Usuario eliminado correctamente.");
+        
+        mResponse.sendRedirect(mRequest.getContextPath() + "/pages/user?action=index");
+    }   
 }
