@@ -1,6 +1,7 @@
 package com.zentcode.models;
 
 import com.zentcode.illuminate.Model;
+import com.zentcode.utils.PasswordHashing;
 import javax.servlet.http.HttpServletRequest;
 
 public class User implements Model {
@@ -90,6 +91,6 @@ public class User implements Model {
         this.telefono = request.getParameter("telefono");
         this.celular = request.getParameter("celular");
         this.email = request.getParameter("email");
-        this.password = request.getParameter("password");
+        this.password = PasswordHashing.generateHash(request.getParameter("password"));
     }
 }

@@ -85,7 +85,6 @@ public class UserServlet extends HttpServlet implements Controller {
     public void store() throws ServletException, IOException {
         User user = new User();
         
-        System.out.println("UTF: " + mRequest.getParameter("direccion"));
         List<ValidatorError> errors = Validator.validate(mRequest, user.requiredParams());
         if (errors.isEmpty()) {
             user.fill(mRequest);

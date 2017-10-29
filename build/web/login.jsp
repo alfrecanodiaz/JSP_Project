@@ -1,9 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<c:if test="${sessionScope.user != null}">
-    <c:redirect url="pages/home" />
-</c:if>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -31,7 +28,7 @@
         <link href="${pageContext.request.contextPath}/assets/theme/css/style.min.css" rel="stylesheet">
     </head>
     <body class="login-page">
-        <jsp:include page="flash_message.jsp" />
+        <jsp:include page="/includes/flash_message.jsp" />
         <div class="login-box">
             <div class="logo">
                 <a href="javascript:void(0);">Admin<b>BSB</b></a>
@@ -59,21 +56,13 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8 p-t-5">
-<!--                                <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-                                <label for="rememberme">Remember Me</label>-->
+                                <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                                <label for="rememberme">Remember Me</label>
                             </div>
                             <div class="col-xs-4">
                                 <button class="btn btn-block bg-pink waves-effect" type="submit">ENTRAR</button>
                             </div>
                         </div>
-<!--                        <div class="row m-t-15 m-b--20">
-                            <div class="col-xs-6">
-                                <a href="sign-up.html">Register Now!</a>
-                            </div>
-                            <div class="col-xs-6 align-right">
-                                <a href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                        </div>-->
                         <input type="hidden" name="action" value="login">
                     </form>
                 </div>

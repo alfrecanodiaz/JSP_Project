@@ -10,8 +10,8 @@ public class HomeServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("page_title", "Home");
-//        request.setAttribute("page_subtitle", "This");
+        //request.setAttribute("page_title", "Home");
+        //request.setAttribute("page_subtitle", "This");
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 

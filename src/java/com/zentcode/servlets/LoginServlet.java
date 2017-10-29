@@ -1,6 +1,7 @@
 package com.zentcode.servlets;
 
 import com.zentcode.dao.AuthImplement;
+import com.zentcode.utils.PasswordHashing;
 import com.zentcode.utils.Validator;
 import com.zentcode.utils.ValidatorError;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class LoginServlet extends HttpServlet {
                 List<ValidatorError> errors = Validator.validate(request, required);
                 if (errors.isEmpty()) {
                     credentials.put("email", request.getParameter("email"));
-                    credentials.put("password", request.getParameter("password"));
+                    credentials.put("password", PasswordHashing.generateHash(request.getParameter("password")));
                     if (service.auth(credentials)) {
                         route = "pages/home";
                     } else {
