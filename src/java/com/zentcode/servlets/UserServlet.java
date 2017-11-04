@@ -115,6 +115,7 @@ public class UserServlet extends HttpServlet implements Controller {
         if (errors.isEmpty()) {
             user.fill(mRequest);
             service.update(user);
+            session.setAttribute("success", "Usuario actualizado correctamente.");
             mResponse.sendRedirect(mRequest.getContextPath() + "/pages/user?action=index");
         } else {
             session.setAttribute("errors", errors);

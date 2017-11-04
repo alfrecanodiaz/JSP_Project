@@ -63,6 +63,24 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">group</i>
+                        <span>Roles</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="<c:url value="/pages/role?action=index" />">
+                                <span>Roles List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<c:url value="/pages/role?action=create" />">
+                                <span>Create Role</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->

@@ -12,7 +12,6 @@ public class Validator {
         List<String> required = splitString(requiredParams);
         
         for (String param : required) {
-            System.out.println(param);
             if (request.getParameter(param) == null) {
                 ValidatorError error = new ValidatorError();
                 error.setField(param);

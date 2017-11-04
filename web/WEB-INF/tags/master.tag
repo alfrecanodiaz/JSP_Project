@@ -1,4 +1,4 @@
-<%@tag description="Overall Page template" pageEncoding="UTF-8"%>
+<%@tag description="Master Layout" pageEncoding="UTF-8"%>
 <%@attribute name="styles" fragment="true" %>
 <%@attribute name="scripts" fragment="true" %>
 <%@attribute name="content" fragment="true" %>

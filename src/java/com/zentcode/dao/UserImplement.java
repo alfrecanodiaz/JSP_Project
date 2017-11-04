@@ -40,7 +40,6 @@ public class UserImplement implements UserService {
                     user.setCelular(rs.getString(5));
                     user.setEmail(rs.getString(6));
                     user.setPassword(rs.getString(7));
-                    
                     list.add(user);
                 }
                 ps.close();
