@@ -91,6 +91,7 @@ public class User implements Model {
         this.telefono = request.getParameter("telefono");
         this.celular = request.getParameter("celular");
         this.email = request.getParameter("email");
-        this.password = PasswordHashing.generateHash(request.getParameter("password"));
+        if (request.getParameter("password") != null && !request.getParameter("password").isEmpty())
+            this.password = PasswordHashing.generateHash(request.getParameter("password"));
     }
 }

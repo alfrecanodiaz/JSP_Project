@@ -132,5 +132,5 @@ public class UserServlet extends HttpServlet implements Controller {
         session.setAttribute("success", "Usuario eliminado correctamente.");
         
         mResponse.sendRedirect(mRequest.getContextPath() + "/pages/user?action=index");
-    }   
+    }
 }

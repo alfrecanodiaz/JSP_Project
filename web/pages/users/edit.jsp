@@ -52,7 +52,7 @@
 
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="password" name="password" id="password" class="form-control" required="required" value="${user.password}">
+                                    <input type="password" name="password" id="password" class="form-control">
                                     <label class="form-label">Password</label>
                                 </div>
                             </div>

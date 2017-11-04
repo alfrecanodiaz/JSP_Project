@@ -48,9 +48,11 @@
                                                     <a href="<c:url value="/pages/user?action=edit&id=${user.id}" />">
                                                         <i class="material-icons">create</i>
                                                     </a>
-                                                    <a class="delete-item" data-toggle="modal" data-target="#delete-modal" data-action="<c:url value="/pages/user?action=delete&id=${user.id}" />">
-                                                        <i class="material-icons">delete</i>
-                                                    </a>
+                                                    <c:if test="${sessionScope.user.id != user.id}">
+                                                        <a class="delete-item" data-toggle="modal" data-target="#delete-modal" data-action="<c:url value="/pages/user?action=delete&id=${user.id}" />">
+                                                            <i class="material-icons">delete</i>
+                                                        </a>
+                                                    </c:if>
                                                 </td>
                                             </tr>
                                         </c:forEach>
